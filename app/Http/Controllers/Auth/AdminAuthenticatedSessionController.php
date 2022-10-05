@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-class AuthenticatedSessionController extends Controller
+class AdminauthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Auth/Login', [
+        return Inertia::render('Auth/Adminlogin', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
         ]);

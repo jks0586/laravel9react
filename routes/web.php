@@ -28,7 +28,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function (Request $request) {
-    echo '<pre>'; print_r($request->session());echo '</pre>'; die;
+    // echo '<pre>'; print_r($request->session());echo '</pre>'; die;
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

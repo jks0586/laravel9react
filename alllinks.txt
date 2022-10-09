@@ -1,0 +1,3 @@
+https://www.w3techpoint.com/laravel/laravel-9-multiple-guards-authentication
+
+https://dev.to/kachidk/multi-user-authentication-with-laravel-breeze-and-inertia-b2m

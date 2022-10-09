@@ -2,9 +2,12 @@
 
 namespace App\Http\Middleware;
 
+
+use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 class Admin
 {
     /**
@@ -15,9 +18,13 @@ class Admin
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        if (! $request->expectsJson()) {
+    {   
+       
+        return $next($request);
+            
+        if (! $request->expectsJson()) { 
             return route('admin.login');
         }
+        return $next($request);
     }
 }

@@ -16,7 +16,7 @@ export default function Login({ status, canResetPassword }) {
 
     useEffect(() => {
         return () => {
-            reset('password');
+            reset('admin.password');
         };
     }, []);
 
@@ -26,8 +26,8 @@ export default function Login({ status, canResetPassword }) {
 
     const submit = (e) => {
         e.preventDefault();
-
-        post(route('login'));
+        // alert(route('admin.login.store')); return false;
+        post(route('admin.login.store'));
     };
 
     return (

@@ -32,7 +32,8 @@ class AdminloginRequest extends FormRequest
     public function authenticate()
     {
         $this->ensureIsNotRateLimited();
-
+        echo $this->only('email');
+        die;
         if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 

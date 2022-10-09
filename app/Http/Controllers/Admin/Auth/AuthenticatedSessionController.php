@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\AdminloginRequest;
+use App\Http\Requests\Admin\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-class AdminauthenticatedSessionController extends Controller
+class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
@@ -19,8 +19,8 @@ class AdminauthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Auth/Adminlogin', [
-            'canResetPassword' => Route::has('password.request'),
+        return Inertia::render('Admin/Auth/Login', [
+            'canResetPassword' => Route::has('admin.password.request'),
             'status' => session('status'),
         ]);
     }
@@ -31,13 +31,16 @@ class AdminauthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(AdminloginRequest $request)
+    public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        // print_r($request->all());
+        // die;
+
+        $request->adminAuthenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::ADMIN);
     }
 
     /**
@@ -54,6 +57,6 @@ class AdminauthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/admin/admin');
     }
 }

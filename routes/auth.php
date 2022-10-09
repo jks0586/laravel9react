@@ -36,10 +36,10 @@ Route::middleware('guest')->group(function () {
 
     // Admin Routes
 
-    Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create'])
-        ->name('admin.login');
+    // Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create'])
+    //     ->name('admin.login');
 
-    Route::post('admin/login', [AdminAuthenticatedSessionController::class, 'store']);
+    // Route::post('admin/login', [AdminAuthenticatedSessionController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {

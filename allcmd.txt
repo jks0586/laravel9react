@@ -5,3 +5,7 @@ php artisan make:request Auth/AdminloginRequest
 
 php artisan make:controller Admin/Auth/LoginController
 php artisan make:seeder AdminSeeder
+
+php artisan make:migration create_products_table
+
+php artisan make:migration create_categories_table

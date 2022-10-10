@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
@@ -41,8 +43,25 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     // autheneticated routes
     Route::middleware(['role:admin'])->group(function () { 
-
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // categories
+        Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
+        Route::post('categories/store', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('categories/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::post('categories/update', [CategoryController::class, 'update'])->name('categories.update');
+        Route::post('categories/delete', [CategoryController::class, 'delete'])->name('categories.delete');
+
+        // Products
+        Route::get('products', [ProductController::class, 'index'])->name('products.index');
+        Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
+        Route::post('products/store', [ProductController::class, 'store'])->name('products.store');
+        Route::get('products/edit', [ProductController::class, 'edit'])->name('products.edit');
+        Route::post('products/update', [ProductController::class, 'update'])->name('products.update');
+        Route::post('products/delete', [ProductController::class, 'delete'])->name('products.delete');
+
+
+
     });
     
 

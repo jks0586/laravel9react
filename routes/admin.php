@@ -41,6 +41,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     // autheneticated routes
     Route::middleware(['admin'])->group(function () { 
+        
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     });
     

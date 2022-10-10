@@ -11,7 +11,6 @@ class DashboardController extends Controller
     //
     public function index(Request $request){
         
-       
         return Inertia::render('Admin/Dashboard', [
             'canResetPassword' => Route::has('admin.password.request'),
             'status' => session('status'),

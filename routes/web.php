@@ -27,10 +27,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function (Request $request) {
-    // echo '<pre>'; print_r($request->session());echo '</pre>'; die;
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';

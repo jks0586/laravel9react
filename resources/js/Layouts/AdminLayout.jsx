@@ -47,7 +47,7 @@ export default function Admin ({ auth, header, children }) {
                                                 type='button'
                                                 className='inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150'
                                             >
-                                                {/* {auth.admin.name} */}
+                                                {auth.user.name}
 
                                                 <svg
                                                     className='ml-2 -mr-0.5 h-4 w-4'
@@ -139,10 +139,10 @@ export default function Admin ({ auth, header, children }) {
                     <div className='pt-4 pb-1 border-t border-gray-200'>
                         <div className='px-4'>
                             <div className='font-medium text-base text-gray-800'>
-                                {/* {auth.admin.name} */}
+                                {auth.user.name}
                             </div>
                             <div className='font-medium text-sm text-gray-500'>
-                                {/* {auth.admin.email} */}
+                                {auth.user.email}
                             </div>
                         </div>
 

@@ -22,9 +22,9 @@ class Admin
        
         return $next($request);
             
-        if (! $request->expectsJson()) { 
-            return route('admin.login');
-        }
-        return $next($request);
+        // if (! $request->expectsJson()) { 
+        //     return route('admin.login');
+        // }
+        // return $next($request);
     }
 }
